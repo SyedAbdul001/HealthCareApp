@@ -19,20 +19,20 @@ public class SpecializationServiceImpl implements SpecializationService {
 
 	@Override
 	public Long saveSpecialization(Specialization specialization) {
+		
 		Specialization savedObject = specailizationRepo.save(specialization);
-		
-		
-		
 		return savedObject.getSpecId();
 	}
 
 	@Override
 	public List<Specialization> getAllSpecailization() {
+		
 		return specailizationRepo.findAll();
 	}
 
 	@Override
 	public Specialization getOneSpecailizationById(Long specId) {
+		
 		Optional<Specialization> findById = specailizationRepo.findById(specId);
 		if(findById.isPresent()) {
 			return findById.get();
