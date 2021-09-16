@@ -13,15 +13,16 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-header bg-primary text-center text-white ">
-				<h3>Specialization Register Page</h3>
-				<form th:action="@{/specialization/save}" method="post">
+				<h3>Edit Specialization Page</h3>
+				<form th:action="@{/specialization/update}" method="post" th:object="${specialization}">
+					
 					<!-- row - 1 -->
 					<div class="row">
 						<div class="col-2">
-							<label for="specCode"> CODE</label>
+							<label for="specID"> ID </label>
 						</div>
 						<div class="col-4">
-							<input type="text" name="specCode" class="form-control" />
+							<input type="text" th:field="*{specId}" class="form-control" readonly="readonly" />
 						</div>
 						<div class="col-6">
 							<span id="specCodeError"> </span>
@@ -31,30 +32,43 @@
 					<!-- row - 2 -->
 					<div class="row">
 						<div class="col-2">
-							<label for="specName"> Name </label>
+							<label for="specCode"> CODE</label>
 						</div>
 						<div class="col-4">
-							<input type="text" name="specName" class="form-control" />
+							<input type="text" th:field="*{specCode}" class="form-control" />
 						</div>
 						<div class="col-6">
-							<span id="specNameError"> </span>
+							<span id="specCodeError"> </span>
 						</div>
 					</div>
 					
 					<!-- row - 3 -->
 					<div class="row">
 						<div class="col-2">
+							<label for="specName"> Name </label>
+						</div>
+						<div class="col-4">
+							<input type="text" th:field="*{specName}" class="form-control" />
+						</div>
+						<div class="col-6">
+							<span id="specNameError"> </span>
+						</div>
+					</div>
+					
+					<!-- row - 4 -->
+					<div class="row">
+						<div class="col-2">
 							<label for="specNote"> CODE</label>
 						</div>
 						<div class="col-4">
-							<textarea name="specNote" rows="6" cols="30" class="fomr-control"></textarea>
+							<textarea th:field="*{specNote}" rows="6" cols="30" class="fomr-control"></textarea>
 						</div>
 						<div class="col-6">
 							<span id="specNoteError"> </span>
 						</div>
 					</div>
 					
-					<button type="submit" class="btn btn-success">Save</button>
+					<button type="submit" class="btn btn-success">Update</button>
 					
 				</form>
 			</div>

@@ -24,6 +24,29 @@ public class SpecializationController {
 	@Resource
 	private SpecializationService specializationService;
 	
+	@GetMapping("/edit")
+	public String editSpecializationById(Model model,@RequestParam Long id) {
+		
+		Specialization oneSpecailizationById = specializationService.getOneSpecailizationById(id);
+		model.addAttribute("specialization", oneSpecailizationById);
+		
+		return "specializationedit";
+	}
+	
+	@PostMapping("/update")
+	public RedirectView updateSpecialization(@ModelAttribute Specialization specialization) {
+		
+		Long savedSpecializationId = specializationService.saveSpecialization(specialization);
+		
+		
+		return new RedirectView("showall");
+	}
+	
+	
+	
+	
+	
+	
 	@GetMapping("/delete")
 	public RedirectView deleteSpecializationById(@RequestParam Long id) {
 		
